@@ -6,5 +6,6 @@
 @import './layout/navbar.module';
 @import './layout/footer';
 
-@import 'home';
-@import 'contact';
+@import './pages/home';
+@import './pages/contact';
+@import './pages/search';

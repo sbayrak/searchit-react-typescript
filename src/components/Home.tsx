@@ -1,9 +1,11 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SearchContext } from '../context/search/SearchState';
 
 const Home = () => {
   const searchContext = useContext(SearchContext);
   const [searchInput, setSearchInput] = useState<string>('');
+  const navigation = useNavigate();
 
   console.log(searchContext);
 
@@ -19,6 +21,7 @@ const Home = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('form submitted');
+    navigation('/search');
   };
 
   return (
