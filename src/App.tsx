@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Footer from './components/layout/Footer';
 import Contact from './components/Contact';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
+          <Route path='/search' element={<Search />}></Route>
         </Routes>
       </div>{' '}
       <Footer />

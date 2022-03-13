@@ -1,19 +1,30 @@
-import React, { ChangeEvent, useContext, useState } from 'react';
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { SearchContext } from '../context/search/SearchState';
 
 const Home = () => {
   const searchContext = useContext(SearchContext);
   const [searchInput, setSearchInput] = useState<string>('');
 
+  console.log(searchContext);
+
+  useEffect(() => {
+    searchContext.setSearch(searchInput);
+  }, [searchInput]);
+
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchInput(e.target.value);
   };
 
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('form submitted');
+  };
+
   return (
     <div className='home'>
       <div className='home-wrapper'>
-        <form>
+        <form onSubmit={handleSearch}>
           <input
             type='text'
             name='search'

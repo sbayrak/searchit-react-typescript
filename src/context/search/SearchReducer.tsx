@@ -1,7 +1,9 @@
 import React from 'react';
 import { SInitialState } from './SearchState';
 
-export type ACTIONTYPES = { type: 'SET_ACTIVE_CLASS'; payload: string };
+export type ACTIONTYPES =
+  | { type: 'SET_ACTIVE_CLASS'; payload: string }
+  | { type: 'SET_SEARCH_INPUT'; payload: string };
 
 function SearchReducer(state: SInitialState, action: ACTIONTYPES) {
   switch (action.type) {
@@ -9,6 +11,11 @@ function SearchReducer(state: SInitialState, action: ACTIONTYPES) {
       return {
         ...state,
         active: action.payload,
+      };
+    case 'SET_SEARCH_INPUT':
+      return {
+        ...state,
+        search: action.payload,
       };
   }
 }
