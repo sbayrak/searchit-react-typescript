@@ -1,0 +1,48 @@
+.contact-wrapper {
+  height: 100vh;
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    margin-top: $padding * 5;
+
+    .contact {
+      .contact-img {
+        width: 300px;
+      }
+      h2 {
+        font-weight: 800;
+        color: $primary;
+        margin: $padding 0;
+      }
+      h4 {
+        margin-bottom: $padding * 3;
+      }
+      .c-btn.active {
+        @include btn($primary);
+        margin: $padding 0;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        margin: $padding 0;
+        li {
+          padding: 0;
+          a {
+            font-size: 18px;
+            color: $primary;
+            padding: $padding * 0.5 $padding;
+            border-radius: $border-radius * 4;
+            transition: 0.2s ease-in-out;
+            &:hover {
+              background-color: $primary;
+              color: $bg-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Home from '../Home';
 
 const Navbar = () => {
@@ -17,9 +18,9 @@ const Navbar = () => {
 
         <div className='s-nav-item d-flex justify-content-end align-items-center'>
           <div>
-            <a href='/' className='text-white'>
+            <Link to='/contact' className='text-white'>
               <button className='s-contact active'>Contact</button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
