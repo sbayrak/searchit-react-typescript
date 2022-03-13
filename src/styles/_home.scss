@@ -1,0 +1,85 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .home-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $padding;
+    width: 100%;
+
+    form {
+      width: 50%;
+      padding: $padding;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 100%;
+        outline: none;
+        border: 2px solid rgba($color: $primary, $alpha: 0.3);
+        border-radius: $border-radius * 4;
+        padding: $padding * 0.75 $padding * 1.5;
+        transition: 0.1s ease-in-out;
+        color: $text-color;
+        &:focus {
+          border: 2px solid rgba($color: $primary, $alpha: 0.7);
+          box-shadow: $box-shadow;
+        }
+        &:hover {
+          box-shadow: $box-shadow;
+        }
+      }
+      span {
+        position: absolute;
+        right: 30px;
+        padding: $padding * 0.5 $padding;
+        border-radius: 50%;
+        cursor: pointer;
+        color: $text-color;
+        transition: 0.2s ease-in-out;
+        &:active {
+          background-color: rgba($color: $primary, $alpha: 0.2);
+        }
+        &:focus {
+          background-color: rgba($color: $primary, $alpha: 0.2);
+        }
+        &:hover {
+          color: $bg-color;
+          background-color: rgba($color: $primary, $alpha: 0.5);
+          box-shadow: $box-shadow;
+        }
+      }
+    }
+
+    .search-types {
+      width: 50%;
+      padding: 0;
+      margin: 0;
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 $padding;
+        margin: 0;
+
+        li {
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            @include btn();
+          }
+          button.active {
+            @include btn($primary);
+          }
+        }
+      }
+    }
+  }
+}

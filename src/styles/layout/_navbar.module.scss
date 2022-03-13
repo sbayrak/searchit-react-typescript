@@ -1,0 +1,25 @@
+.s-navbar {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1px solid blue;
+  box-shadow: $box-shadow;
+  padding: $padding;
+  background-color: $bg-color;
+
+  .nav-items {
+    display: flex;
+    justify-content: space-between;
+    .s-nav-item {
+      .s-contact {
+        @include btn;
+      }
+      .s-contact.active {
+        @include btn($primary);
+      }
+    }
+  }
+}

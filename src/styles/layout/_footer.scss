@@ -1,0 +1,45 @@
+.footer-wrapper {
+  width: 100%;
+  position: static;
+  bottom: 0;
+  left: 0;
+  height: 10vh;
+  box-shadow: $box-shadow;
+  color: $bg-color;
+  display: flex;
+  align-items: center;
+  background-color: rgba($color: $primary, $alpha: 0.1);
+  .f-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+
+    .f-item {
+      .f-link {
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 600;
+        padding: $padding $padding * 2;
+        color: $primary;
+        text-align: left;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        li {
+          padding: 0;
+          margin: 0 $padding;
+          a {
+            padding: $padding * 0.5 $padding;
+            font-size: 18px;
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

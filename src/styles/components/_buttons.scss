@@ -1,0 +1,17 @@
+@mixin btn($back-color: rgba($color: $primary, $alpha: 0.5)) {
+  outline: none;
+  border: none;
+  padding: $padding * 0.5 $padding;
+  border-radius: $border-radius * 4;
+  border: 1px solid rgba($color: $primary, $alpha: 0.3);
+  background-color: $back-color;
+  color: $bg-color;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: $bg-color;
+    background-color: $primary;
+    box-shadow: $box-shadow;
+    border: 1px solid rgba($color: $primary, $alpha: 1);
+  }
+}
