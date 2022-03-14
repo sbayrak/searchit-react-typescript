@@ -1,0 +1,22 @@
+.notfound-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .notfound-container {
+    img {
+      width: 600px;
+    }
+  }
+  .notfound {
+    .n-btn {
+      @include btn;
+      padding: $padding * 5;
+    }
+    .n-btn.active {
+      @include btn($primary);
+    }
+  }
+}
