@@ -9,6 +9,7 @@
   box-shadow: $box-shadow;
   padding: $padding;
   background-color: $bg-color;
+  z-index: 99;
 
   .nav-items {
     display: flex;

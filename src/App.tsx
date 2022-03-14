@@ -11,8 +11,6 @@ function App() {
   return (
     <Router>
       <div className='container-lg' style={{ border: '1px solid red' }}>
-        {/* <Navbar />
-         */}
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
@@ -20,7 +18,7 @@ function App() {
           <Route path='/search' element={<Search />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
-      </div>{' '}
+      </div>
       <Footer />
     </Router>
   );

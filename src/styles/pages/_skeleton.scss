@@ -1,0 +1,9 @@
+.skeleton-container {
+  .skeleton-item {
+    margin-bottom: $padding * 2;
+
+    .myskeleton {
+      background-color: rgba($primary, $alpha: 0.2);
+    }
+  }
+}
