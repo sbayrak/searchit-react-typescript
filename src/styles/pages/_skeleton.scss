@@ -1,9 +1,33 @@
 .skeleton-container {
   .skeleton-item {
-    margin-bottom: $padding * 2;
+    margin-bottom: $padding * 3;
 
     .myskeleton {
       background-color: rgba($primary, $alpha: 0.2);
     }
   }
+}
+
+.skeleton-news-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.skeleton-all-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skeleton-video-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

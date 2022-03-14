@@ -28,12 +28,35 @@ const SkeletonComponent = ({ type, bp }: Props) => {
   }
   function largeNewsSkeleton() {
     let items = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 10; i++) {
       items.push(
         <div className='skeleton-item'>
-          <Skeleton width={250} className='myskeleton' />
-          <Skeleton width={450} className='myskeleton' />
-          <Skeleton width={650} height={75} className='myskeleton' />
+          <Skeleton width={550} height={50} className='myskeleton' />
+          <Skeleton width={350} className='myskeleton' />
+        </div>
+      );
+    }
+    return items;
+  }
+  function largeImageSkeleton() {
+    let items = [];
+    for (let i = 0; i < 21; i++) {
+      items.push(
+        <div className='skeleton-item'>
+          <Skeleton width={175} height={175} className='myskeleton' />
+          <Skeleton width={175} className='myskeleton' count={2} />
+        </div>
+      );
+    }
+    return items;
+  }
+
+  function largeVideoSkeleton() {
+    let items = [];
+    for (let i = 0; i < 16; i++) {
+      items.push(
+        <div className='skeleton-item' style={{ padding: '0 10px' }}>
+          <Skeleton width={300} height={200} className='myskeleton' />
         </div>
       );
     }
@@ -41,13 +64,21 @@ const SkeletonComponent = ({ type, bp }: Props) => {
   }
   return (
     <div
-      className='skeleton-container'
-      style={{
-        display: 'flex',
-        flexDirection: searchContext.active === 'all' ? 'column' : 'row',
-      }}
+      className={`skeleton-container skeleton-${searchContext.active}-container`}
     >
-      {largeAllSkeleton()}
+      {/* {largeAllSkeleton()} */}
+      {/* {largeNewsSkeleton()} */}
+      {/* {largeImageSkeleton()} */}
+      {/* {largeVideoSkeleton()} */}
+      {searchContext.active === 'all'
+        ? largeAllSkeleton()
+        : searchContext.active === 'news'
+        ? largeNewsSkeleton()
+        : searchContext.active === 'image'
+        ? largeImageSkeleton()
+        : searchContext.active === 'video'
+        ? largeVideoSkeleton()
+        : ''}
     </div>
   );
 };
