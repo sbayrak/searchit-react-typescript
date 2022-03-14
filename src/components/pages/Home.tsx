@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SearchContext } from '../context/search/SearchState';
+import { SearchContext } from '../../context/search/SearchState';
 
 const Home = () => {
   const searchContext = useContext(SearchContext);

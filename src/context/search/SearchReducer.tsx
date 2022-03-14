@@ -1,4 +1,3 @@
-import React from 'react';
 import { SInitialState } from './SearchState';
 
 export type ACTIONTYPES =
