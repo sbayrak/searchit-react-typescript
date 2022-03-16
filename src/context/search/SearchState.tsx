@@ -20,7 +20,7 @@ export interface SInitialState {
 }
 
 const initialState: SInitialState = {
-  active: 'all',
+  active: 'news',
   search: '',
   all: [],
   switchActive: () => {},

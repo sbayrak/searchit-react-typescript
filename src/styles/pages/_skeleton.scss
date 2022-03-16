@@ -1,4 +1,5 @@
 .skeleton-container {
+  max-width: 100%;
   .skeleton-item {
     margin-bottom: $padding * 3;
 
@@ -9,25 +10,31 @@
 }
 
 .skeleton-news-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: $padding;
+  align-content: flex-start;
+  border: 1px solid purple;
+
+  .skeleton-news {
+    max-width: 100%;
+  }
 }
 .skeleton-all-container {
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .skeleton-image-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .skeleton-video-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
