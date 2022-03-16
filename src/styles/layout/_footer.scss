@@ -10,13 +10,26 @@
   align-items: center;
   background-color: rgba($color: $primary, $alpha: 0.1);
   z-index: 99;
+  border: 1px solid red;
   .f-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0;
+    @include xs {
+      flex-direction: column;
+    }
+    @include sm {
+      flex-direction: row;
+    }
 
     .f-item {
+      @include xs {
+        margin: $padding 0;
+      }
+      @include sm {
+        margin-bottom: 0;
+      }
       .f-link {
         font-size: 14px;
         font-style: italic;
