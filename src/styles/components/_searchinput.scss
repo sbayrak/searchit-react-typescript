@@ -5,6 +5,13 @@
     position: relative;
     display: flex;
     align-items: center;
+    border: 1px solid blue;
+    @include xs {
+      width: 100%;
+    }
+    @include sm {
+      width: 50%;
+    }
 
     input {
       width: 100%;
@@ -49,6 +56,8 @@
     padding: 0;
     margin: 0;
     margin-bottom: $padding;
+    border: 1px solid red;
+
     ul {
       display: flex;
       justify-content: space-between;
@@ -62,11 +71,26 @@
           align-items: center;
           justify-content: space-between;
           @include btn();
+
+          img {
+            @include xs {
+              width: 50%;
+            }
+            @include sm {
+              width: 100%;
+            }
+          }
         }
         button.active {
           @include btn($primary);
         }
       }
+    }
+    @include xs {
+      width: 100%;
+    }
+    @include sm {
+      width: 50%;
     }
   }
 }

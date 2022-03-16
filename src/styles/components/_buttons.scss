@@ -14,4 +14,11 @@
     box-shadow: $box-shadow;
     border: 1px solid rgba($color: $primary, $alpha: 1);
   }
+
+  @include xs {
+    font-size: $padding * 0.75;
+  }
+  @include sm {
+    font-size: $padding;
+  }
 }

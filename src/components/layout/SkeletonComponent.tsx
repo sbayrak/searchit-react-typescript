@@ -13,7 +13,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
 
   // )
 
-  function largeAllSkeleton() {
+  function largeAllSkeleton(): JSX.Element[] {
     let items = [];
     for (let i = 0; i < 4; i++) {
       items.push(
@@ -26,7 +26,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     }
     return items;
   }
-  function largeNewsSkeleton() {
+  function largeNewsSkeleton(): JSX.Element[] {
     let items = [];
     for (let i = 0; i < 10; i++) {
       items.push(
@@ -38,7 +38,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     }
     return items;
   }
-  function largeImageSkeleton() {
+  function largeImageSkeleton(): JSX.Element[] {
     let items = [];
     for (let i = 0; i < 21; i++) {
       items.push(
@@ -51,7 +51,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     return items;
   }
 
-  function largeVideoSkeleton() {
+  function largeVideoSkeleton(): JSX.Element[] {
     let items = [];
     for (let i = 0; i < 16; i++) {
       items.push(

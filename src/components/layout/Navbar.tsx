@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Home from '../pages/Home';
 
 const Navbar = () => {
   return (
     <div className='s-navbar'>
       <div className='container-lg nav-items'>
         <div className='s-nav-item'>
-          <a href='/'>
+          <Link to='/'>
             <img
               src={`${process.env.PUBLIC_URL}/searchit.png`}
               alt='searchit_logo'
               width={200}
             />
-          </a>
+          </Link>
         </div>
 
         <div className='s-nav-item d-flex justify-content-end align-items-center'>
