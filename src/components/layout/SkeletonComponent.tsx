@@ -55,8 +55,8 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     let items = [];
     for (let i = 0; i < 16; i++) {
       items.push(
-        <div className='skeleton-item' style={{ paddingRight: '10px' }}>
-          <Skeleton width={420} height={250} className='myskeleton' />
+        <div className='skeleton-item'>
+          <Skeleton width='100%' height={250} className='myskeleton' />
         </div>
       );
     }

@@ -31,10 +31,36 @@
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+
+  @include xs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include sm {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @include xl {
+    grid-template-columns: repeat(7, 1fr);
+  }
 }
 
 .skeleton-video-container {
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  @include xs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include sm {
+    gap: 0 $padding * 0.5;
+  }
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
