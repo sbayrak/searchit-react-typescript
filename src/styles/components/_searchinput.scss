@@ -9,7 +9,10 @@
     @include xs {
       width: 100%;
     }
-    @include sm {
+    @include md {
+      width: 75%;
+    }
+    @include lg {
       width: 50%;
     }
 
@@ -57,6 +60,18 @@
     margin: 0;
     margin-bottom: $padding;
     border: 1px solid red;
+    @include xs {
+      width: 100%;
+    }
+    @include sm {
+      width: 100%;
+    }
+    @include md {
+      width: 75%;
+    }
+    @include lg {
+      width: 50%;
+    }
 
     ul {
       display: flex;
@@ -66,6 +81,12 @@
       margin: 0;
 
       li {
+        @include xs {
+          // padding: 0 $padding * 0.1;
+        }
+        @include sm {
+          padding: 0;
+        }
         button {
           display: flex;
           align-items: center;
@@ -74,7 +95,7 @@
 
           img {
             @include xs {
-              width: 50%;
+              width: 30%;
             }
             @include sm {
               width: 100%;
@@ -85,12 +106,6 @@
           @include btn($primary);
         }
       }
-    }
-    @include xs {
-      width: 100%;
-    }
-    @include sm {
-      width: 50%;
     }
   }
 }

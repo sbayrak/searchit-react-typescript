@@ -44,7 +44,8 @@ const SearchInput = () => {
               className={searchContext.active === 'all' ? 'active' : ''}
               onClick={() => searchContext.switchActive('all')}
             >
-              <img src={`${process.env.PUBLIC_URL}/search.svg`} alt='' />
+              {/* <img src={`${process.env.PUBLIC_URL}/search.svg`} alt='' /> */}
+              <i className='fa-solid fa-magnifying-glass'></i>
               &nbsp;
               <span>All</span>
             </button>
@@ -54,7 +55,9 @@ const SearchInput = () => {
               className={searchContext.active === 'news' ? 'active' : ''}
               onClick={() => searchContext.switchActive('news')}
             >
-              <img src={`${process.env.PUBLIC_URL}/news.svg`} alt='' /> &nbsp;
+              {/* <img src={`${process.env.PUBLIC_URL}/news.svg`} alt='' /> */}
+              <i className='fa-solid fa-newspaper'></i>
+              &nbsp;
               <span>News</span>
             </button>
           </li>
@@ -63,7 +66,9 @@ const SearchInput = () => {
               className={searchContext.active === 'image' ? 'active' : ''}
               onClick={() => searchContext.switchActive('image')}
             >
-              <img src={`${process.env.PUBLIC_URL}/image.svg`} alt='' /> &nbsp;
+              {/* <img src={`${process.env.PUBLIC_URL}/image.svg`} alt='' />  */}
+              <i className='fa-solid fa-image'></i>
+              &nbsp;
               <span>Image</span>
             </button>
           </li>
@@ -72,7 +77,9 @@ const SearchInput = () => {
               className={searchContext.active === 'video' ? 'active' : ''}
               onClick={() => searchContext.switchActive('video')}
             >
-              <img src={`${process.env.PUBLIC_URL}/video.svg`} alt='' /> &nbsp;
+              {/* <img src={`${process.env.PUBLIC_URL}/video.svg`} alt='' />  */}
+              <i className='fa-solid fa-circle-play'></i>
+              &nbsp;
               <span>Video</span>
             </button>
           </li>
