@@ -14,6 +14,9 @@ const Contact = () => {
             Hello! I am <a href='https://suatbayrak.com'>Suat Bayrak</a>
           </h2>
           <h4>Thank you for visiting my website.</h4>
+          <a href='/' className='resume-link'>
+            <button className='c-btn active'>Resume</button>
+          </a>
           <ul>
             <li>
               <a href='/'>
@@ -36,9 +39,6 @@ const Contact = () => {
               </a>
             </li>
           </ul>
-          <a href='/'>
-            <button className='c-btn active'>Resume</button>
-          </a>
         </div>
       </div>
     </div>

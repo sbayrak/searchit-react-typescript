@@ -15,11 +15,15 @@
         margin: $padding 0;
       }
       h4 {
-        margin-bottom: $padding * 3;
+        margin-bottom: $padding * 2;
       }
-      .c-btn.active {
-        @include btn($primary);
-        margin: $padding 0;
+
+      .resume-link {
+        margin-bottom: $padding * 2;
+        .c-btn.active {
+          @include btn($primary);
+          margin: $padding 0;
+        }
       }
 
       ul {
