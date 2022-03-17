@@ -20,11 +20,28 @@
   .skeleton-news {
     max-width: 100%;
   }
+  @include xs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .skeleton-all-container {
-  width: 100%;
+  width: 50%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  border: 2px solid blue;
+
+  @include xs {
+    width: 100%;
+  }
+  @include sm {
+    width: 75%;
+  }
+  @include md {
+    width: 50%;
+  }
 }
 
 .skeleton-image-container {

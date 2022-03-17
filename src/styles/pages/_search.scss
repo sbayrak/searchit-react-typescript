@@ -11,49 +11,97 @@
 
     .search-all {
       width: 50%;
+      border: 1px solid red;
+      @include xs {
+        width: 100%;
+      }
+      @include md {
+        width: 75%;
+      }
+      @include lg {
+        width: 50%;
+      }
 
       a {
         color: $text-color;
 
         span {
           font-size: $padding * 0.75;
+          @include xs {
+            font-size: $padding * 0.55;
+          }
+          @include sm {
+            font-size: $padding * 0.75;
+          }
         }
         h4 {
           margin-bottom: 0;
           font-weight: 600;
           color: $primary;
+          @include xs {
+            font-size: $padding;
+          }
+          @include sm {
+            font-size: $padding * 1.125;
+          }
+          @include md {
+            font-size: calc(1.275rem + 0.3vw);
+          }
         }
+
         p {
           font-size: $padding * 0.85;
-        }
-      }
-    }
-
-    .search-news {
-      width: 45%;
-      border: 1px solid red;
-      margin-bottom: $padding * 3;
-
-      a {
-        color: $text-color;
-        p {
-          font-size: $padding * 0.85;
-          font-weight: 600;
-          color: $primary;
-          margin-bottom: 0;
-        }
-        span {
-          font-size: $padding * 0.75;
+          @include xs {
+            font-size: $padding * 0.7;
+          }
+          @include sm {
+            font-size: $padding * 0.8;
+          }
         }
       }
     }
   }
 
   .search-news-container {
-    border: 2px solid red;
+    border: 3px solid blue;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    .search-news {
+      width: 45%;
+      border: 1px solid red;
+      margin-bottom: $padding * 3;
+      @include xs {
+        width: 100%;
+      }
+      @include md {
+        width: 45%;
+      }
+      a {
+        color: $text-color;
+        .description {
+          font-size: $padding * 0.85;
+          font-weight: 600;
+          color: $primary;
+          margin-bottom: 0;
+          @include xs {
+            font-size: $padding * 0.7;
+          }
+          @include sm {
+            font-size: $padding * 0.85;
+          }
+        }
+        span {
+          font-size: $padding * 0.75;
+          @include xs {
+            font-size: $padding * 0.6;
+          }
+          @include sm {
+            font-size: $padding * 0.75;
+          }
+        }
+      }
+    }
   }
 
   .search-image-container {
@@ -61,15 +109,32 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    @include xs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 $padding * 0.5;
+    }
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include lg {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
     .search-image {
       border: 1px solid red;
       margin-right: $padding * 0.5;
       margin-bottom: $padding;
+      @include xs {
+        margin-right: 0;
+      }
+      @include lg {
+        margin-right: $padding * 0.5;
+      }
 
       img {
         width: 100%;
-        object-fit: cover;
       }
       .search-image-p {
         border: 1px solid red;
@@ -86,6 +151,12 @@
     grid-template-columns: repeat(1, 1fr);
     gap: $padding * 0.75;
     row-gap: $padding * 2.5;
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     .search-video {
       border: 1px solid blue;

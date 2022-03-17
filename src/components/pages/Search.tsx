@@ -60,7 +60,38 @@ const Search = () => {
       <div className={`search-wrapper`}>
         <SearchInput />
         {/* Skeletonlar bunun icine renderlanmalı */}
-        <div className={`search-${searchContext.active}-container`}></div>
+        <div className={`search-${searchContext.active}-container`}>
+          <div className='search-video'>
+            <ReactPlayer
+              url={
+                'https://www.youtube.com/watch?v=GDa8kZLNhJ4&t=28157s&ab_channel=JavaScriptMastery'
+              }
+              muted={true}
+              width='100%'
+              height='100%'
+            />
+          </div>
+          <div className='search-video'>
+            <ReactPlayer
+              url={
+                'https://www.youtube.com/watch?v=GDa8kZLNhJ4&t=28157s&ab_channel=JavaScriptMastery'
+              }
+              muted={true}
+              width='100%'
+              height='100%'
+            />
+          </div>
+          <div className='search-video'>
+            <ReactPlayer
+              url={
+                'https://www.youtube.com/watch?v=GDa8kZLNhJ4&t=28157s&ab_channel=JavaScriptMastery'
+              }
+              muted={true}
+              width='100%'
+              height='100%'
+            />
+          </div>
+        </div>
 
         <SkeletonComponent type='asd' bp='asd' />
       </div>

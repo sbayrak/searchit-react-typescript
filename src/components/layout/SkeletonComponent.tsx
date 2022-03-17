@@ -9,18 +9,15 @@ interface Props {
 }
 const SkeletonComponent = ({ type, bp }: Props) => {
   const searchContext = useContext(SearchContext);
-  // const largeSkeleton = (
-
-  // )
 
   function largeAllSkeleton(): JSX.Element[] {
     let items = [];
     for (let i = 0; i < 4; i++) {
       items.push(
-        <div className='skeleton-item  '>
-          <Skeleton width='25%' className='myskeleton' />
-          <Skeleton width='50%' className='myskeleton' />
-          <Skeleton width='50%' height={75} className='myskeleton' />
+        <div className='skeleton-item'>
+          <Skeleton width='100%' className='myskeleton' />
+          <Skeleton width='100%' className='myskeleton' />
+          <Skeleton width='100%' height={75} className='myskeleton' />
         </div>
       );
     }
