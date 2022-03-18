@@ -69,8 +69,7 @@
     flex-wrap: wrap;
     .search-news {
       width: 45%;
-      border: 1px solid red;
-      margin-bottom: $padding * 3;
+      margin-bottom: $padding * 1;
       @include xs {
         width: 100%;
       }

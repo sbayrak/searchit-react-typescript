@@ -7,9 +7,6 @@ const SearchInput = () => {
   const searchContext = useContext(SearchContext);
   const [searchInput, setSearchInput] = useState<string>('');
   const navigation = useNavigate();
-  const location = useLocation();
-
-  console.log(location);
 
   useEffect(() => {
     searchContext.setSearch(searchInput);
@@ -23,7 +20,7 @@ const SearchInput = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('form submitted');
-    navigation('/search');
+    navigation(`/search?q=${searchInput}`);
   };
 
   return (

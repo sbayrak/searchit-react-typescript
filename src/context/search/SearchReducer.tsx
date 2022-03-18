@@ -1,9 +1,10 @@
-import { allObj, SInitialState } from './SearchState';
+import { allObj, newsObj, SInitialState } from './SearchState';
 
 export type ACTIONTYPES =
   | { type: 'SET_ACTIVE_CLASS'; payload: string }
   | { type: 'SET_SEARCH_INPUT'; payload: string }
-  | { type: 'SET_ALL_RESULT'; payload: allObj[] };
+  | { type: 'SET_ALL_RESULT'; payload: allObj[] }
+  | { type: 'SET_NEWS_RESULT'; payload: newsObj[] };
 
 function SearchReducer(state: SInitialState, action: ACTIONTYPES) {
   switch (action.type) {
@@ -21,6 +22,11 @@ function SearchReducer(state: SInitialState, action: ACTIONTYPES) {
       return {
         ...state,
         all: action.payload,
+      };
+    case 'SET_NEWS_RESULT':
+      return {
+        ...state,
+        news: action.payload,
       };
   }
 }

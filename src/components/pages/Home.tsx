@@ -9,8 +9,6 @@ const Home = () => {
   const navigation = useNavigate();
   const location = useLocation();
 
-  console.log(location);
-
   return (
     <div className='home'>
       <div className='home-wrapper'>

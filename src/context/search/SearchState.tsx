@@ -8,24 +8,36 @@ export type allObj = {
   cite: string;
 };
 
+export type newsObj = {
+  title: string;
+  links: [];
+  source: {
+    href: string;
+  };
+};
+
 export interface SInitialState {
   active: string;
   search: string;
   all: allObj[];
+  news: newsObj[];
   switchActive: (
     payload: string
   ) => React.MouseEvent<HTMLButtonElement | MouseEvent> | void;
   setSearch: (payload: string) => React.ChangeEvent<HTMLInputElement> | void;
-  getAllResult: (query: string) => void;
+  getAllResult: (query: string | null) => void;
+  getNewsResult: (query: string | null) => void;
 }
 
 const initialState: SInitialState = {
-  active: 'video',
+  active: 'all',
   search: '',
   all: [],
+  news: [],
   switchActive: () => {},
   setSearch: () => {},
   getAllResult: () => {},
+  getNewsResult: () => {},
 };
 
 interface Props {
@@ -51,7 +63,7 @@ const SearchState = ({ children }: Props) => {
     });
   };
 
-  const getAllResult = async (query: string) => {
+  const getAllResult = async (query: string | null) => {
     const fetchData = await fetch(
       `https://google-search3.p.rapidapi.com/api/v1/search/q=${query}&num=100`,
       {
@@ -66,7 +78,25 @@ const SearchState = ({ children }: Props) => {
     );
 
     const result = await fetchData.json();
-    dispatch({ type: 'SET_ALL_RESULT', payload: result });
+    dispatch({ type: 'SET_ALL_RESULT', payload: result.results });
+  };
+
+  const getNewsResult = async (query: string | null) => {
+    const fetchData = await fetch(
+      `https://google-search3.p.rapidapi.com/api/v1/news/q=${query}`,
+      {
+        method: 'GET',
+        headers: {
+          'x-user-agent': 'desktop',
+          'x-proxy-location': 'EU',
+          'x-rapidapi-host': 'google-search3.p.rapidapi.com',
+          'x-rapidapi-key': `${process.env.REACT_APP_APIKEY}`,
+        },
+      }
+    );
+
+    const result = await fetchData.json();
+    dispatch({ type: 'SET_NEWS_RESULT', payload: result.entries });
   };
   return (
     <SearchContext.Provider
@@ -74,9 +104,11 @@ const SearchState = ({ children }: Props) => {
         active: state.active,
         search: state.search,
         all: state.all,
+        news: state.news,
         switchActive,
         setSearch,
         getAllResult,
+        getNewsResult,
       }}
     >
       {children}

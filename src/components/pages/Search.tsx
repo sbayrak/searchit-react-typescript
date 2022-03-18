@@ -1,11 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ReactPlayer from 'react-player';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { SearchContext } from '../../context/search/SearchState';
 import SearchInput from '../layout/SearchInput';
 import SkeletonComponent from '../layout/SkeletonComponent';
 
 const Search = () => {
   const searchContext = useContext(SearchContext);
+  const location = useLocation();
+  const [urlSearchParams] = useSearchParams();
+  console.log(location.search.split('='));
+
+  console.log(urlSearchParams.get('q'));
+
+  useEffect(() => {
+    let query = location.search.split('=');
+
+    if (searchContext.active === 'all') searchContext.getAllResult(query[1]);
+    else if (searchContext.active === 'news')
+      searchContext.getNewsResult(query[1]);
+  }, [location.search, searchContext.active]);
+
+  console.log(searchContext);
+
   const searchAll = (
     <div className='search-all'>
       <a href='/'>
@@ -61,39 +78,43 @@ const Search = () => {
         <SearchInput />
         {/* Skeletonlar bunun icine renderlanmalı */}
         <div className={`search-${searchContext.active}-container`}>
-          <div className='search-video'>
-            <ReactPlayer
-              url={
-                'https://www.youtube.com/watch?v=GDa8kZLNhJ4&t=28157s&ab_channel=JavaScriptMastery'
-              }
-              muted={true}
-              width='100%'
-              height='100%'
-            />
-          </div>
-          <div className='search-video'>
-            <ReactPlayer
-              url={
-                'https://www.youtube.com/watch?v=GDa8kZLNhJ4&t=28157s&ab_channel=JavaScriptMastery'
-              }
-              muted={true}
-              width='100%'
-              height='100%'
-            />
-          </div>
-          <div className='search-video'>
-            <ReactPlayer
-              url={
-                'https://www.youtube.com/watch?v=GDa8kZLNhJ4&t=28157s&ab_channel=JavaScriptMastery'
-              }
-              muted={true}
-              width='100%'
-              height='100%'
-            />
-          </div>
+          {searchContext.active === 'all' ? (
+            searchContext.all.length > 0 ? (
+              searchContext.all.slice(0, 10).map((item, index) => (
+                <div className='search-all' key={index}>
+                  <Link to='/'>
+                    <span>{item.link}</span>
+                    <h4 className='title'>{item.title}</h4>
+                    <p className='description'>{item.description}</p>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <SkeletonComponent type='asd' bp='asd' />
+            )
+          ) : searchContext.active === 'news' ? (
+            searchContext.news.length > 0 ? (
+              searchContext.news.slice(0, 10).map((item, index) => (
+                <div className='search-news'>
+                  <Link to='/'>
+                    <p className='description'>{item.title}</p>
+                    <span>{item.source.href}</span>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <div className='search-news'>
+                <Link to='/'>
+                  <p className='description'>No result yet...</p>
+                </Link>
+              </div>
+            )
+          ) : (
+            'abc'
+          )}
         </div>
 
-        <SkeletonComponent type='asd' bp='asd' />
+        {/* <SkeletonComponent type='asd' bp='asd' /> */}
       </div>
     </div>
   );
