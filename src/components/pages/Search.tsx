@@ -18,6 +18,8 @@ const Search = () => {
       searchContext.getNewsResult(query[1]);
     else if (searchContext.active === 'image')
       searchContext.getImageResults(query[1]);
+    else if (searchContext.active === 'video')
+      searchContext.getVideoResults(query[1]);
   }, [location.search, searchContext.active]);
 
   console.log(searchContext);
@@ -81,11 +83,11 @@ const Search = () => {
             searchContext.all.length > 0 ? (
               searchContext.all.slice(0, 10).map((item, index) => (
                 <div className='search-all' key={index}>
-                  <Link to='/'>
+                  <a href={item.link} target='_blank' rel='noreferrer noopener'>
                     <span>{item.link}</span>
                     <h4 className='title'>{item.title}</h4>
                     <p className='description'>{item.description}</p>
-                  </Link>
+                  </a>
                 </div>
               ))
             ) : (
@@ -95,10 +97,14 @@ const Search = () => {
             searchContext.news.length > 0 ? (
               searchContext.news.slice(0, 10).map((item, index) => (
                 <div className='search-news' key={index}>
-                  <Link to='/'>
+                  <a
+                    href={item.source.href}
+                    target='_blank'
+                    rel='noreferrer noopener'
+                  >
                     <p className='description'>{item.title}</p>
                     <span>{item.source.href}</span>
-                  </Link>
+                  </a>
                 </div>
               ))
             ) : (
@@ -110,7 +116,11 @@ const Search = () => {
             searchContext.image.length > 0 ? (
               searchContext.image.map((item, index) => (
                 <div className='search-image' key={index}>
-                  <Link to={item.link.href}>
+                  <a
+                    href={item.link.href}
+                    target='_blank'
+                    rel='noreferrer noopener'
+                  >
                     <img
                       src={item.image.src}
                       alt='SUAT_BAYRAK'
@@ -119,7 +129,22 @@ const Search = () => {
                     <p className='description search-image-p'>
                       {item.link.title}
                     </p>
-                  </Link>
+                  </a>
+                </div>
+              ))
+            ) : (
+              <SkeletonComponent type='asd' bp='asd' />
+            )
+          ) : searchContext.active === 'video' ? (
+            searchContext.video.length > 0 ? (
+              searchContext.video.map((item, index) => (
+                <div className='search-video' key={index}>
+                  <ReactPlayer
+                    url={item.additional_links?.[0].href}
+                    muted={true}
+                    width='100%'
+                    height='100%'
+                  />
                 </div>
               ))
             ) : (

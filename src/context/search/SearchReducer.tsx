@@ -1,11 +1,19 @@
-import { allObj, imgResultObj, newsObj, SInitialState } from './SearchState';
+import {
+  allObj,
+  imgResultObj,
+  newsObj,
+  SInitialState,
+  videoObj,
+} from './SearchState';
 
 export type ACTIONTYPES =
   | { type: 'SET_ACTIVE_CLASS'; payload: string }
   | { type: 'SET_SEARCH_INPUT'; payload: string }
   | { type: 'SET_ALL_RESULT'; payload: allObj[] }
   | { type: 'SET_NEWS_RESULT'; payload: newsObj[] }
-  | { type: 'SET_IMAGE_RESULTS'; payload: imgResultObj[] };
+  | { type: 'SET_IMAGE_RESULTS'; payload: imgResultObj[] }
+  | { type: 'SET_VIDEO_RESULTS'; payload: videoObj[] }
+  | { type: 'CLEAR' };
 
 function SearchReducer(state: SInitialState, action: ACTIONTYPES) {
   switch (action.type) {
@@ -33,6 +41,19 @@ function SearchReducer(state: SInitialState, action: ACTIONTYPES) {
       return {
         ...state,
         image: action.payload,
+      };
+    case 'SET_VIDEO_RESULTS':
+      return {
+        ...state,
+        video: action.payload,
+      };
+    case 'CLEAR':
+      return {
+        ...state,
+        all: [],
+        news: [],
+        image: [],
+        video: [],
       };
   }
 }
