@@ -9,9 +9,6 @@ const Search = () => {
   const searchContext = useContext(SearchContext);
   const location = useLocation();
   const [urlSearchParams] = useSearchParams();
-  console.log(location.search.split('='));
-
-  console.log(urlSearchParams.get('q'));
 
   useEffect(() => {
     let query = location.search.split('=');
@@ -19,6 +16,8 @@ const Search = () => {
     if (searchContext.active === 'all') searchContext.getAllResult(query[1]);
     else if (searchContext.active === 'news')
       searchContext.getNewsResult(query[1]);
+    else if (searchContext.active === 'image')
+      searchContext.getImageResults(query[1]);
   }, [location.search, searchContext.active]);
 
   console.log(searchContext);
@@ -95,7 +94,7 @@ const Search = () => {
           ) : searchContext.active === 'news' ? (
             searchContext.news.length > 0 ? (
               searchContext.news.slice(0, 10).map((item, index) => (
-                <div className='search-news'>
+                <div className='search-news' key={index}>
                   <Link to='/'>
                     <p className='description'>{item.title}</p>
                     <span>{item.source.href}</span>
@@ -104,10 +103,27 @@ const Search = () => {
               ))
             ) : (
               <div className='search-news'>
-                <Link to='/'>
-                  <p className='description'>No result yet...</p>
-                </Link>
+                <p className='description'>No result yet...</p>
               </div>
+            )
+          ) : searchContext.active === 'image' ? (
+            searchContext.image.length > 0 ? (
+              searchContext.image.map((item, index) => (
+                <div className='search-image' key={index}>
+                  <Link to={item.link.href}>
+                    <img
+                      src={item.image.src}
+                      alt='SUAT_BAYRAK'
+                      loading='lazy'
+                    />
+                    <p className='description search-image-p'>
+                      {item.link.title}
+                    </p>
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <SkeletonComponent type='asd' bp='asd' />
             )
           ) : (
             'abc'
