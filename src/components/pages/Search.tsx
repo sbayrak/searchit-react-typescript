@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { SearchContext } from '../../context/search/SearchState';
+import Pagination from '../layout/Pagination';
 import SearchInput from '../layout/SearchInput';
 import SkeletonComponent from '../layout/SkeletonComponent';
 
@@ -154,6 +155,7 @@ const Search = () => {
             'abc'
           )}
         </div>
+        <Pagination />
 
         {/* <SkeletonComponent type='asd' bp='asd' /> */}
       </div>
