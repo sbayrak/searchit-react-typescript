@@ -53,7 +53,7 @@ export interface SInitialState {
 }
 
 const initialState: SInitialState = {
-  active: 'video',
+  active: 'all',
   search: '',
   all: [],
   news: [],

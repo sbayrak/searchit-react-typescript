@@ -14,7 +14,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     let items = [];
     for (let i = 0; i < 4; i++) {
       items.push(
-        <div className='skeleton-item'>
+        <div className='skeleton-item' key={i}>
           <Skeleton width='100%' className='myskeleton' />
           <Skeleton width='100%' className='myskeleton' />
           <Skeleton width='100%' height={75} className='myskeleton' />
@@ -27,7 +27,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     let items = [];
     for (let i = 0; i < 10; i++) {
       items.push(
-        <div className='skeleton-item skeleton-news'>
+        <div className='skeleton-item skeleton-news' key={i}>
           <Skeleton width='100%' height={50} className='myskeleton' />
           <Skeleton width='50%' className='myskeleton' />
         </div>
@@ -39,7 +39,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     let items = [];
     for (let i = 0; i < 21; i++) {
       items.push(
-        <div className='skeleton-item'>
+        <div className='skeleton-item' key={i}>
           <Skeleton width={175} height={175} className='myskeleton' />
           <Skeleton width={175} className='myskeleton' count={1} />
         </div>
@@ -52,7 +52,7 @@ const SkeletonComponent = ({ type, bp }: Props) => {
     let items = [];
     for (let i = 0; i < 16; i++) {
       items.push(
-        <div className='skeleton-item'>
+        <div className='skeleton-item' key={i}>
           <Skeleton width='100%' height={250} className='myskeleton' />
         </div>
       );
