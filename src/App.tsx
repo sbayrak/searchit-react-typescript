@@ -16,7 +16,7 @@ import ScrollTop from './components/layout/ScrollTop';
 function App() {
   return (
     <Router>
-      <div className='container-lg' style={{ border: '1px solid red' }}>
+      <div className='container-lg'>
         <Navbar />
         <ScrollTop>
           <Routes>
