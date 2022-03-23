@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import ReactPlayer from 'react-player';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { PaginationContext } from '../../context/pagination/PaginationState';
 import { SearchContext } from '../../context/search/SearchState';
 import Pagination from '../layout/Pagination';

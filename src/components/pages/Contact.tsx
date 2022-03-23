@@ -11,10 +11,22 @@ const Contact = () => {
             className='contact-img'
           />
           <h2>
-            Hello! I am <a href='https://suatbayrak.com'>Suat Bayrak</a>
+            Hello! I am{' '}
+            <a
+              href='https://suatbayrak.com'
+              target={'_blank'}
+              rel='noreferrer noopener'
+            >
+              Suat Bayrak
+            </a>
           </h2>
           <h4>Thank you for visiting my website.</h4>
-          <a href='/' className='resume-link'>
+          <a
+            href='https://www.suatbayrak.com/resume.pdf'
+            className='resume-link'
+            target={'_blank'}
+            rel='noreferrer noopener'
+          >
             <button className='c-btn active'>Resume</button>
           </a>
           <ul>

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SearchContext } from '../../context/search/SearchState';
 
 const SearchInput = () => {
@@ -19,7 +19,6 @@ const SearchInput = () => {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('form submitted');
     searchContext.clear();
     navigation(`/search?q=${searchInput}`);
   };
