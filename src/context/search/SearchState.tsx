@@ -79,6 +79,9 @@ const SearchState = ({ children }: Props) => {
 
   const switchActive = (payload: string) => {
     dispatch({
+      type: 'CLEAR',
+    });
+    dispatch({
       type: 'SET_ACTIVE_CLASS',
       payload,
     });

@@ -3,10 +3,12 @@ import PaginationReducer from './PaginationReducer';
 
 export interface IInitialState {
   page: number;
+  changePage: (page: number) => void;
 }
 
 const initialState: IInitialState = {
   page: 0,
+  changePage: () => {},
 };
 
 interface Props {
@@ -18,10 +20,18 @@ export const PaginationContext = createContext<IInitialState>(initialState);
 function PaginationState({ children }: Props) {
   const [state, dispatch] = useReducer(PaginationReducer, initialState);
 
+  const changePage = (page: number) => {
+    dispatch({
+      type: 'SET_PAGE_NUMBER',
+      payload: page,
+    });
+  };
+
   return (
     <PaginationContext.Provider
       value={{
         page: state.page,
+        changePage,
       }}
     >
       {children}
