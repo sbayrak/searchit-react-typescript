@@ -20,7 +20,7 @@ const SearchInput = () => {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     searchContext.clear();
-    navigation(`/search?q=${searchInput}`);
+    navigation(`/search?q=${searchInput}&page=1`);
   };
 
   return (

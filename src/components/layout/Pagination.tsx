@@ -30,10 +30,15 @@ const Pagination = () => {
 
   function handleChangeCurrentPage(i: number) {
     let currentPage = location.search;
-    let newPage = currentPage.slice(0, -1) + i;
-    let splittedQuery = newPage.split('&');
+    let getPageNumber: number;
+    let newPage: string = '';
+    // console.log(currentPage.split('&')[1].split('=')); // ['page', '12'] verdi
 
-    navigation(`/search${splittedQuery[0]}&${splittedQuery[1]}`);
+    getPageNumber = Number(currentPage.split('&')[1].split('=')[1]);
+    if (getPageNumber >= 10) newPage = currentPage.slice(0, -2) + i;
+    else if (getPageNumber < 10) newPage = currentPage.slice(0, -1) + i;
+
+    navigation(`/search${newPage}`);
   }
 
   function detectPageNumber() {
