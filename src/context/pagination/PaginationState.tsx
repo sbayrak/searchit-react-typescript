@@ -3,11 +3,13 @@ import PaginationReducer from './PaginationReducer';
 
 export interface IInitialState {
   page: number;
+  itemsPerPage: number;
   changePage: (page: number) => void;
 }
 
 const initialState: IInitialState = {
   page: 0,
+  itemsPerPage: 10,
   changePage: () => {},
 };
 
@@ -31,6 +33,7 @@ function PaginationState({ children }: Props) {
     <PaginationContext.Provider
       value={{
         page: state.page,
+        itemsPerPage: state.itemsPerPage,
         changePage,
       }}
     >

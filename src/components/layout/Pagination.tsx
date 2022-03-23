@@ -1,13 +1,19 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import { PaginationContext } from '../../context/pagination/PaginationState';
 import { SearchContext } from '../../context/search/SearchState';
 
 const Pagination = () => {
   const paginationContext = useContext(PaginationContext);
   const searchContext = useContext(SearchContext);
-
-  console.log(paginationContext);
+  const navigation = useNavigate();
+  const location = useLocation();
+  const [urlSearchParams] = useSearchParams();
 
   useEffect(() => {
     if (searchContext.active === 'all' && searchContext.all.length > 0)
@@ -27,12 +33,33 @@ const Pagination = () => {
     detectPageNumber();
   }, [paginationContext.page]);
 
+  function handleChangeCurrentPage(i: number) {
+    let currentPage = location.search;
+    let newPage = currentPage.slice(0, -1) + i;
+    let splittedQuery = newPage.split('&');
+
+    navigation(`/search${splittedQuery[0]}&${splittedQuery[1]}`);
+  }
+
   function detectPageNumber() {
     let result = [];
     for (let i = 1; i <= paginationContext.page; i++) {
       result.push(
-        <li className='page-item' aria-current='page' key={i}>
-          <span className='page-link'>{i}</span>
+        <li
+          className={`page-item ${
+            urlSearchParams.get('page') &&
+            i === Number(urlSearchParams.get('page')) &&
+            'active'
+          }`}
+          aria-current='page'
+          key={i}
+        >
+          <span
+            className='page-link'
+            onClick={() => handleChangeCurrentPage(i)}
+          >
+            {i}
+          </span>
         </li>
       );
     }
