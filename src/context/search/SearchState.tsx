@@ -132,7 +132,7 @@ const SearchState = ({ children }: Props) => {
 
   const getImageResults = async (query: string | null) => {
     const fetchData = await fetch(
-      `https://google-search3.p.rapidapi.com/api/v1/images/q=${query}`,
+      `https://google-search3.p.rapidapi.com/api/v1/image/q=${query}`,
       {
         method: 'GET',
         headers: {
